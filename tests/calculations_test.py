@@ -22,6 +22,16 @@ def test_area_of_circle_positive_radius():
     assert abs(result - 3.14159) < 1e-5
 
 
+def test_area_of_circle_negative_radius():
+    """Test with a negative radius."""
+    # Arrange
+    radius = -1
+
+    # Act & Assert
+    with pytest.raises(ValueError, match="Radius cannot be negative"):
+        area_of_circle(radius)
+
+
 def test_area_of_circle_zero_radius():
     """Test with a radius of zero."""
     # Arrange
@@ -32,6 +42,16 @@ def test_area_of_circle_zero_radius():
 
     # Assert
     assert result == 0
+
+
+def test_get_nth_fibonacci_negative():
+    """Test with negative n."""
+    # Arrange
+    n = -1
+
+    # Act & Assert
+    with pytest.raises(ValueError, match="n cannot be negative"):
+        get_nth_fibonacci(n)
 
 
 def test_get_nth_fibonacci_zero():
